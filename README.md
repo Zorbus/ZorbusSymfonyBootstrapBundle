@@ -44,3 +44,8 @@ Optimization
 
 At the moment, every request that is processed downloads the bundles, what increases the bandwith used by the server.
 A more efficient way would to be have a local sample of the files by version and copy them when needed. It would be faster to process and less resource consuming.
+
+Demo
+----
+
+Check a live demo at http://symfonybootstrap.titomiguelcosta.com/
