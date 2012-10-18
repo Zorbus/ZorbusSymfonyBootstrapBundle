@@ -1,0 +1,21 @@
+Zorbus\SymfonyBootstrapBundle\Entity\Repository:
+    type: entity
+    table: zorbus_symfony_bootstrap_repository
+    repositoryClass: Zorbus\SymfonyBootstrapBundle\Entity\RepositoryRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+        class:
+            type: string
+            length: 255
+            nullable: false
+        is_enabled:
+            type: boolean
+            default: true
+            nullable: true

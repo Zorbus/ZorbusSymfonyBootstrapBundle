@@ -1,0 +1,58 @@
+{% extends 'ZorbusSymfonyBootstrapBundle::layout.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block choice_widget_expanded %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+    {% for child in form %}
+        <label class="{{ (multiple ? 'checkbox' : 'radio') ~ (widget_type ? ' ' ~ widget_type : '') ~ (inline is defined and inline ? ' inline' : '') }}">
+            {{ form_widget(child, {'attr': {'class': attr.widget_class|default('')}}) }}
+            {{ child.vars.label|trans({}, translation_domain)|raw }}
+        </label>
+    {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}
+
+
+{% block content %}
+    {% if not app.session.flashbag.has('submit') %}
+        <form novalidate="novalidate" class="form-horizontal" method="post" action="{{ path('zorbus_symfony_bootstrap_homepage') }}">
+            <fieldset>
+                <legend>Project</legend>
+                {{ form_row(form.name) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.author) }}
+                {{ form_row(form.email) }}
+            </fieldset>
+            <fieldset>
+                <legend>Symfony</legend>
+                {{ form_row(form.symfony) }}
+            </fieldset>
+            <fieldset>
+                <legend>Bundles</legend>
+                {{ form_row(form.bundles) }}
+            </fieldset>
+            <fieldset>
+                <legend>Repositories</legend>
+                {{ form_row(form.repositories) }}
+            </fieldset>
+            {{ form_rest(form) }}
+            <hr />
+            <fieldset>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Generate" class="btn" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    {% else %}
+        <div class="alert alert-success">
+            {% for message in app.session.flashbag.get('submit') %}
+                <p>Thanks {{ message.author }}, your request is being processed. We will e-mail you when completed.</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

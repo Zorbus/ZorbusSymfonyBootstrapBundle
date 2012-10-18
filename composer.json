@@ -1,0 +1,27 @@
+{
+    "name": "zorbuns/symfony-bootstrap-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Bootstrap Bundle",
+    "keywords": [],
+    "homepage": "http://symfonybootstrap.titomiguelcosta.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tito Costa",
+            "email": "zorbus@titomiguelcosta.com"
+        },
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "Zorbus\\SymfonyBootstrapBundle": "" }
+    },
+    "target-dir": "Zorbus/SymfonyBootstrapBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.*-dev"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+Zorbus\SymfonyBootstrapBundle\Entity\Project:
+    type: entity
+    table: zorbus_symfony_bootstrap_project
+    repositoryClass: Zorbus\SymfonyBootstrapBundle\Entity\ProjectRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+        author:
+            type: string
+            length: 255
+            nullable: false
+        email:
+            type: string
+            length: 255
+            nullable: false
+        description:
+            type: string
+            length: 255
+        symfony:
+            type: string
+            length: 255
+            nullable: false
+        processed:
+            type: boolean
+            default: false
+            nullable: true
+        token:
+            type: string
+            length: 255
+            nullable: false
+        created_at:
+            type: datetime
+    manyToMany:
+        bundles:
+            targetEntity: Bundle
+            inversedBy: projects
+            joinTable:
+                name: zorbus_symfony_bootstrap_project_bundle
+                joinColumns:
+                    project_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    bundle_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+        repositories:
+            targetEntity: Repository
+            inversedBy: projects
+            joinTable:
+                name: zorbus_symfony_bootstrap_project_repository
+                joinColumns:
+                    project_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    repository_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+    lifecycleCallbacks:
+        prePersist: [doCreatedAt, doToken, doProcessed]

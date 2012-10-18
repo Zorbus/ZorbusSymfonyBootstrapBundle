@@ -1,0 +1,10 @@
+Zorbus\SymfonyBootstrapBundle\Entity\Project:
+    properties:
+        name:
+            - NotBlank: ~
+            - Regex: "/^\w+$/i"
+        author:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+            - Email: ~

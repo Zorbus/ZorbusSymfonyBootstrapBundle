@@ -1,0 +1,13 @@
+parameters:
+#    zorbus_symfony_bootstrap.example.class: Zorbus\SymfonyBootstrapBundle\Example
+
+services:
+    bootstrap.repository.factory:
+        class: Zorbus\SymfonyBootstrapBundle\Configuration\Bootstrap\RepositoryFactory
+        arguments: ['@kernel']
+    bootstrap.bundle.factory:
+        class: Zorbus\SymfonyBootstrapBundle\Configuration\Bootstrap\BundleFactory
+        arguments: ['@kernel']
+#    zorbus_symfony_bootstrap.example:
+#        class: %zorbus_symfony_bootstrap.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

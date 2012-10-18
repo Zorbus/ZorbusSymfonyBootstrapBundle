@@ -1,0 +1,7 @@
+zorbus_symfony_bootstrap_homepage:
+    pattern:  /
+    defaults: { _controller: ZorbusSymfonyBootstrapBundle:Default:index }
+
+zorbus_symfony_bootstrap_download:
+    pattern:  /download/{token}
+    defaults: { _controller: ZorbusSymfonyBootstrapBundle:Default:download }

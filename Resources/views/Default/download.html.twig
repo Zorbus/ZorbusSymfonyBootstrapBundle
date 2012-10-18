@@ -1,0 +1,12 @@
+{% extends 'ZorbusSymfonyBootstrapBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>Symfony Bootstrap download</h1>
+    {% if project %}
+        <a href="/bootstrap/{{ project.name }}.tgz">Download your Symfony Bootstrap</a>
+    {% else %}
+        <div class="alert alert-error">
+            <p>Sorry, but your project is not available anymore.</p>
+        </div>
+    {%endif %}
+{% endblock %}
